@@ -43,7 +43,7 @@ export default {
     getOneArticle() {
       axios({
         method: 'get',
-        url: `http://localhost:3000/home/articles/${this.$route.params.id}`
+        url: `https://api-blog.bramaprasetyo.co/home/articles/${this.$route.params.id}`
       }).then(response => {
         this.article = response.data.Article
         // console.log(response.data.Article.title)
@@ -114,7 +114,7 @@ export default {
   /* border: 5px solid black; */
   border-radius: 5px;
   margin-top: 10px;
-  background-image: url('http://static.wixstatic.com/media/ac65a6e34704466bae682286d73b77ad.jpg_256');
+  background-image: url('https://cdn.newsapi.com.au/image/v1/053e70ddc55e5aa4b1584e2485331c20');
 }
 
 #itu {
@@ -129,7 +129,7 @@ export default {
 }
 
 #actionprofile {
-  color: rgb(245, 248, 248);
+  color: rgb(1, 8, 8);
 }
 
 .content {
@@ -205,6 +205,6 @@ a:hover {
 }
 
 #nama {
-  color: whitesmoke;
+  color: rgb(7, 2, 2);
 }
 </style>

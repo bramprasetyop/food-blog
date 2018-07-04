@@ -2,7 +2,6 @@
     <div class="details">
         <div id="comment" class="row">
             <div class="content">
-
                 <h3>{{articles[0].title}}</h3>
                 <p align="justify">
                     {{articles[0].article}}
