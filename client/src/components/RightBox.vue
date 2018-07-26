@@ -8,7 +8,7 @@
       <p> <img :src="result.restaurant.featured_image"></p>
 
       <a  @click="restaurantDirect(result.restaurant.events_url)" target="_blank">
-        <h6 style="color:blue"> {{result.restaurant.name}}, {{result.restaurant.user_rating.aggregate_rating}}</h6>
+        <h6 style="color:blue"> {{result.restaurant.name}}, &#9733; {{result.restaurant.user_rating.aggregate_rating}} </h6>
       </a>
 
     </div>
