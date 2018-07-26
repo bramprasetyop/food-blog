@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "untuk-live-code-besok",
+  "private_key_id": "7ce14ec086625b7183d6e85c2f497641ab7ef03e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDBXGjJl+4lvE5H\nRmxdjbZcHk2InA/eLem9cPHj2Vi3zDVxndJTgI8IEt5EvKozWqel1c7ZorM8uoUB\nkleCX4ZWzxVRGM6joHNgVB99Mhf2Yy0xnTVXG0oaWVtQwAhC68UwuAnKjvsfQIoT\nXjsv1VsHoj6lVEefYxL0t2o2V9lXNEjpHlKCwmpdC4oy88KWDtQLgiDVe9fBfapY\nX/7TUXo5Ad0HD1ytngV0EKPGrIrtlif/W52gTYe8x7W9iGY7V55G/vmFMIIGf13z\n6CLGeCwiWWPeulYPbQFFER//mTx9j5pZhp/54EaXYjYg1HEuax2DVfOrccXkr8im\nsHIVOFPBAgMBAAECggEADbcIxbfNkAalxL91g0NAepM5q6VqKLe3+xRuS9uIQ+0r\no0Xu+7ZELu3rrxN0vRTCjGw4ck5siTOvqHdhVqGA7Vpd6DUqvwdr95qv6xjpAzRw\nqbK9bFLGtEy/QeCFFX4UrAp5w1DV9hcFVC9cYl2vScDT0bVDKUaFOy9hTL55b4pp\nwnDw6Ve+9jzCL219FcD8hGjaQW4izEqSYWgdkQwj/iP1f8/44e+KJCzabq0rbAxi\ncCHPpLyl+xzNZHPikKZ+R0w2vaDSMRnvooNsdXPBRbMo965n/OyPOCBVQxRLy820\n48+ggkKDMjGVHbTGHQ+6dU9Bjr5vC9CZm8bxgiO24wKBgQDpVCwIZUL/ouAjSMdv\n3cPhGlhJHbSRPcBTvuctej+FmvpdnF1QPEFqWJFU7OH+TE9zv1Z1GgDQe9KggB/9\n3g74KtkLP8w0I7zgUnIwhKbuPUVJVOIZoVnZ+mwjtEMvdN3hJ+9ZrcyCHRXoBTWQ\nvpRrqX9s/1+RJx2BrFWcreoSDwKBgQDUJhOPkoQb1pMF+oUR+E86yeCIiXggBgvH\nONJWh4oCXqUFqo1xXdDNdV/UJlXDxaldkQtPpnkQX2V0xmILwnl5RAU3VQdaeVF4\nkSD49IM/hZ2itigbpOxnG/ft7OmtUGy8VPInDOGnouzug+6hVX7h0O6gjkckLYYV\nSFxcIafNLwKBgQCKLzRowHfeZ/qwSuD6am8geHbCzpnqzpSBxHSrJVRLbw5JtFo7\nM4RWVB+2GRh6f30qgq3UalMDJeIG9fp8Yi+hX9bs55qrYmLww0MnYthuDdFj7aZ+\nIWXSR5IVzyNfDqp9NyZ0iQ6uHEWmBLfFgmjqHhb+WXuivnSmIIcPZJxUlwKBgQCL\nJI4f1JEhURMNEMrGhn4wqMfDxaYsGssO143dgvhZpYnGtZ4fhNC2cQ1xL9OAm9wB\nqmgozZ8JxgfdF2CnJd5WUu644+P2yytMUKO3pWeP+irx1VdpCjqjRgzO2FxLeDxZ\nKb3JLwGx2YJczdttpY2avlZEqAyxBcqzmso5AznzsQKBgQC94lYjuk7rZdXQynoE\nHGsKAPkwgLNF9x0/xQ7/ljb102yq8ceDwShWjRC9YK1oGf7GX1OiQwBLzp/zFfjm\n8f/hJQE1X8gAKeZJ/qjOrnEYZ2oPioTzDqZ/PfnFccM2G5msgEAt68Cwd0D7xr5L\nIv36dIovIfuB1Kp0TzKt0x62AA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "ini-92@untuk-live-code-besok.iam.gserviceaccount.com",
+  "client_id": "112195326172798918333",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ini-92%40untuk-live-code-besok.iam.gserviceaccount.com"
+}

@@ -17,6 +17,6 @@ const checkUserDuplication = require('./../helpers/checkUserDuplication');
 
 /* GET home page. */
 router.post('/', signUpVal, checkUserDuplication, signUpUser)
-  .post('/login', loginUser).get('/home/users', getUser)
+  .post('/login', loginUser).get('/users', getUser)
 
 module.exports = router;

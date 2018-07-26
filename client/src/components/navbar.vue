@@ -1,5 +1,7 @@
 <template>
-  <img id="gambar" src="https://i0.wp.com/vatih.com/wp-content/uploads/2018/05/makanan-yang-disuka.jpg?fit=1920%2C1080&ssl=1" alt="">
+
+  <img id="gambar" src="https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/36946922_10209811063148081_2038285663572328448_n.jpg?_nc_cat=0&oh=4f0f35118e28c5f0a9f564623a8e8306&oe=5BE6BAA2" >
+  
 </template>
 
 <script>
@@ -16,25 +18,7 @@ export default {
 }
 </script>
 <style>
-#logo {
-  border: 1px solid black;
-}
-img {
-  max-width: 100%;
-  max-height: 100%;
-}
-#logout {
-  margin-right: 15px;
-}
 
-#yadah {
-  margin-top: -100px;
-}
-
-#gambar{
-  /* border: 1px solid black; */
-  margin-top: -60px;
-}
 </style>
 
 

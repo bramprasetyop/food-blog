@@ -1,31 +1,68 @@
 <template>
   <div class="details">
-    <div id="comment" class="row">
-      <div class="content">
 
-        <h3>{{article.title}}</h3>
-        <p align="justify">
-          {{article.article}}
-        </p>
-        <div id="like" class="col s6">
-          <button class="waves-effect waves-light btn tiny">
-            <label id="comm">Comment</label>
-          </button>
+    <div class="content">
+
+      <div v-show="seen" class="row">
+        <div class="col s7 right">
+          <div class="col s3 right">
+            <button id="tombol" @click="toggleEdit()">Edit</button>
+          </div>
+          <div class="col s4 right">
+            <button @click="deleteContent(article._id)" id="tombol">Delete</button>
+          </div>
         </div>
       </div>
+
+      <div v-if="!editmode" class="content">
+        <h3 id="bahaha">{{article.title}}</h3>
+        <img id="oitdah" v-bind:src="article.image">
+        <p id="isinya" v-html="article.article" align="justify">
+          {{article.article}}
+        </p>
+      </div>
+
+      <div v-else class="content">
+
+        <h4>{{article.title}}</h4>
+        <VueEditor v-model="article.article"> </VueEditor>
+
+        <div id="comment" class="row">
+          <div class="col s7 right">
+            <div class="col s3 right">
+              <button @click="editContent(article._id)" id="tombol">Save</button>
+            </div>
+            <div class="col s4 right">
+              <button @click="toggleEdit()" id="tombol">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </template>
 <script>
 import axios from 'axios'
 import { mapActions, mapState } from 'vuex'
+import { VueEditor } from 'vue2-editor'
 export default {
+  components: {
+    VueEditor
+  },
   data() {
     return {
-      article: []
+      article: '',
+      editmode: false,
+      seen: false
     }
   },
   created() {
+    if (localStorage.hasOwnProperty('token') === true) {
+      this.seen = true
+    }
+
     this.getAll()
     this.getOneArticle()
   },
@@ -43,168 +80,82 @@ export default {
     getOneArticle() {
       axios({
         method: 'get',
-        url: `https://api-blog.bramaprasetyo.co/home/articles/${this.$route.params.id}`
+        url: `http://localhost:3000/home/articles/${this.$route.params.id}`
       }).then(response => {
+        // console.log(response.data.Article)
+
         this.article = response.data.Article
-        // console.log(response.data.Article.title)
+        // console.log(this.article.article)
       })
+    },
+    toggleEdit() {
+      this.editmode = !this.editmode
+      console.log(this.editmode)
+    },
+    editContent(id) {
+      let token = localStorage.getItem('token')
+      const body = {
+        article: this.article.article
+      }
+
+      axios
+        .put(`http://localhost:3000/home/articles/${id}`, body, {
+          headers: {
+            token: token
+          }
+        })
+        .then(response => {
+          // console.log(response);
+          swal({
+            text: 'Edit Article Success',
+            icon: 'success'
+          })
+
+          // this.editmode = false
+          this.$router.push('/')
+        })
+        .catch(err => {
+          swal({
+            text: 'Something Wrong',
+            icon: 'error'
+          })
+        })
+    },
+    deleteContent(id) {
+      swal({
+        title: 'Are you sure?',
+        text: 'Once deleted, you will not be able to recover this Article!',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true
+      }).then(willDelete => {
+        if (willDelete) {
+          swal('Poof! Your Article has been deleted!', {
+            icon: 'success'
+          })
+          axios
+            .delete(`http://localhost:3000/home/articles/${id}`, {
+              headers: {
+                token: token
+              }
+            })
+            .then(response => {
+              this.$router.push('/')
+            })
+        } else {
+          swal('Your Article is safe!')
+        }
+      })
+
+      let token = localStorage.getItem('token')
     }
   }
 }
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
 <style>
-.textArea {
-  border-radius: 5px;
-  border: none;
-}
-
-.nav-wrapper {
-  background-color: rgb(236, 243, 243);
-  height: 100px;
-}
-
-#centerbody {
-  margin-top: 15px;
-  /* border: 1px solid black; */
-  height: auto;
-  background-color: rgb(249, 253, 253);
-  padding: 50px 50px;
-}
-
-#right {
-  margin-top: 15px;
-}
-#left {
-  margin-top: 15px;
-}
-
-#boxright {
-  /* border: 1px solid black; */
-  background-color: rgb(249, 253, 253);
-}
-#boxleft {
-  /* border: 1px solid black; */
-  background-color: rgb(249, 253, 253);
-}
-
-#leftright {
-  padding: 20px 20px;
-}
-
-#oii {
-  align-content: left;
-  /* border: 1px solid black; */
-  padding: 5px 5px;
-  height: auto;
-}
-
-#oit {
-  /* border: 5px solid black; */
-  border-radius: 5px;
-  margin-top: 10px;
-  background-image: url('https://cdn.newsapi.com.au/image/v1/053e70ddc55e5aa4b1584e2485331c20');
-}
-
-#itu {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 125px;
-  /* border: 2px solid black; */
-}
-
-#rightprofile {
-  /* border: 1px solid black; */
-}
-
-#actionprofile {
-  color: rgb(1, 8, 8);
-}
-
-.content {
-  /* border: 1px solid black; */
-  width: 110%;
-  margin-left: -30px;
-}
-
-#photo {
-  /* border: 1px solid black; */
-  height: 50px;
-}
-
-#comm {
-  /* border: 1px solid black; */
-  color: white;
-}
-
-#likebutton {
-  /* border: 1px solid black; */
-  margin-top: 10px;
-}
-
-#like {
-  /* border: 1px solid black; */
-  /* color: rgb(240, 94, 94); */
-    justify-content: right;
-  display: flex;
-}
-
-#usernametwitter {
-  color: rgb(125, 210, 231);
-}
-
-#judulnya {
-  width: 100%;
-  height: 50px;
-  /* border: 1px solid black; */
-}
-
-#nah {
-  /* border: 1px solid black; */
-  /* padding: 5px; */
-  margin: 3px 3px 3px 3px;
-  justify-content: center;
-  display: flex;
-}
-
-#ciat {
-  padding: 5px;
-  justify-content: center;
-  display: flex;
-
-  background-color: rgb(213, 224, 224);
-}
-
-.waves-effect {
-  height: 30px;
-}
-a {
-  color: black;
-  font-size: 18px;
-}
-a:visited {
-  color: rgb(224, 54, 54);
-  background-color: transparent;
-  text-decoration: none;
-}
-a:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-#nama {
-  color: rgb(7, 2, 2);
+#oitdah{
+  padding: 20px;
 }
 </style>

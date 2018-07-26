@@ -15,27 +15,38 @@
         </h6>
         <div class="row">
           <div id="actionprofile" class="col s6">
-            <p>Followers 12.4K</p>
+
+            <a style="font-size:40px" @click="twitter" class="fa fa-twitter"></a>
+
           </div>
           <div id="actionprofile" class="col s6">
-            <p> Tweets 1134</p>
+            <a @click="facebook" style="font-size:40px" class="fa fa-facebook"></a>
           </div>
         </div>
       </div>
 
     </div>
     <div id="leftright">
-      <h4>
+      <h4 style="color:white">
         <strong>Articles</strong>
       </h4>
-      <div v-for="(article,index) in articles" :key="index">
-        <h6>
-          <a @click= "changeHome()">
-            <router-link :to="`/content/${article._id}`">{{article.title}}</router-link>
-          </a>
 
-        </h6>
+      <div v-for="(article,index) in articles" :key="index">
+
+        <div class="row col s12">
+
+          <router-link @click="changeHome()" :to="`/content/${article._id}`"> <img v-bind:src="article.image"></router-link>
+
+        </div>
+
+        <a>
+          <b>
+            <router-link @click="changeHome()" :to="`/content/${article._id}`">{{article.title}}</router-link>
+          </b>
+        </a>
+
       </div>
+      <router-view/>
     </div>
   </div>
 </template>
@@ -46,7 +57,7 @@ import { mapActions, mapState } from 'vuex'
 export default {
   data() {
     return {
-      homepage:true
+      homepage: true
     }
   },
   created() {
@@ -64,7 +75,7 @@ export default {
     getOneArticle(id) {
       axios({
         method: 'get',
-        url: `https://api-blog.bramaprasetyo.co/home/articles/${id}`
+        url: `http://localhost:3000/home/articles/${id}`
       })
         .then(({ data }) => {
           console.log('xxxxxxx', data)
@@ -73,9 +84,17 @@ export default {
           console.log(err.message)
         })
     },
-    changeHome(){
-      homepage:false
+    changeHome() {
+      homepage: false
+    },
+    twitter() {
+      window.location.href = 'https://twitter.com/bramaprasetyo'
+    },
+    facebook() {
+      window.location.href = 'https://web.facebook.com/bram.prasetyo.98'
     }
   }
 }
 </script>
+
+

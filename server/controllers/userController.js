@@ -81,7 +81,7 @@ function getUser(req, res) {
   User.find()
     .then(users => {
       res.status(200).json({
-        message: 'get tweet',
+        message: 'get all users',
         users
       })
     })

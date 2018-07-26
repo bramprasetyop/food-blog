@@ -10,7 +10,7 @@
 
       <div class="row">
 
-        <div id="left" class="col s12 m4 l3">
+        <div id="left" class="col s12 m3 l3">
 
           <div id="boxleft" class="col s12">
             <LeftBox/>
@@ -23,7 +23,7 @@
           <Caurlah/>
         </div>
 
-        <div id="right" class="col s12 m4 l3">
+        <div id="right" class="col s12 m3 l3">
           <div id="boxright" class="col s12">
 
             <RightBox/>

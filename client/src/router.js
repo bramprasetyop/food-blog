@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Details from './views/Details.vue'
+import Post from './views/Post.vue'
+
 
 
 
@@ -23,6 +25,10 @@ export default new Router({
       path: '/content/:id',
       name: 'content',
       component: Details
+    },    {
+      path: '/post',
+      name: 'Article',
+      component: Post
     }
   ],
   mode: 'history'

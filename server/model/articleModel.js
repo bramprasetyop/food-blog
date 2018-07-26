@@ -7,7 +7,8 @@ let articleSchema = new Schema({
   },
   article: {
     type: String
-  }
+  },
+  image: String,
 }, {
   timestamps: true
 });
