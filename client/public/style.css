@@ -24,6 +24,10 @@ body {
   border-radius: 8px;
 }
 
+#bisabang {
+  margin-top: 80px;
+  font-family: cursive;
+}
 #right {
   margin-top: 15px;
   /* border: 1px solid black; */
@@ -293,7 +297,7 @@ a:hover {
 
 .contentt {
   width: 100%;
-  height: 50px;
+  height: 70px;
   background-color: black;
 }
 

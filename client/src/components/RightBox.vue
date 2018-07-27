@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4 id="bisabang">
-      <strong>Restaurants Near You</strong>
+      <strong>Restaurants Near You!</strong>
     </h4>
     <div v-for="result in results" :key="result" id="leftright">
 
@@ -58,7 +58,5 @@ export default {
 </script>
 
 <style>
-#bisabang {
-  margin-top: 80px;
-}
+
 </style>
