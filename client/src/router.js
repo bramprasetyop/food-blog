@@ -4,6 +4,9 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Details from './views/Details.vue'
 import Post from './views/Post.vue'
+import Contact from './views/Contact.vue'
+
+
 
 
 
@@ -25,10 +28,15 @@ export default new Router({
       path: '/content/:id',
       name: 'content',
       component: Details
-    },    {
+    }, {
       path: '/post',
       name: 'Article',
       component: Post
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact
     }
   ],
   mode: 'history'

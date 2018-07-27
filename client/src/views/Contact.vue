@@ -20,7 +20,7 @@
 
         <div id="centerbody" class="col s12 m8 l6">
 
-          <AboutMe/>
+          <Contact/>
         </div>
 
         <div id="right" class="col s12 m4 l3">
@@ -40,8 +40,7 @@
 
 
 <script>
-import AboutMe from '@/components/AboutMe.vue'
-
+import Contact from '@/components/ContactMe.vue'
 
 import Navbar from '@/components/navbar.vue'
 import LeftBox from '@/components/LeftBox.vue'
@@ -53,7 +52,7 @@ import Footer from '@/components/Footer.vue'
 export default {
   name: 'home',
   components: {
-    AboutMe,
+    Contact,
     Navbar,
     LeftBox,
     RightBox,

@@ -4,7 +4,10 @@
 
       <div class="col s5">
         <div id="oii">
-          <img id="itu" src="https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/10616439_10201985757480330_8973849717563076250_n.jpg?_nc_cat=0&_nc_eui2=AeE0txLW7RkfgZeWyFftSDPJbvX8mji5U4p5ozdkSWYbKKKDkqVBPabH73GdsHZN3qDVPenBhIawezobfUhXTHA3zu8I8_UM91m40UMRgej_6w&oh=f3c11d595e45d6af22090853f42bd53e&oe=5BE599FB" class="img-responsive" alt="">
+          <router-link to="/about">
+            <img id="itu" src="https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/10616439_10201985757480330_8973849717563076250_n.jpg?_nc_cat=0&_nc_eui2=AeE0txLW7RkfgZeWyFftSDPJbvX8mji5U4p5ozdkSWYbKKKDkqVBPabH73GdsHZN3qDVPenBhIawezobfUhXTHA3zu8I8_UM91m40UMRgej_6w&oh=f3c11d595e45d6af22090853f42bd53e&oe=5BE599FB" class="img-responsive" alt="">
+          </router-link>
+
         </div>
       </div>
 

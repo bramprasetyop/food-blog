@@ -5,11 +5,16 @@
     </h4>
     <div v-for="result in results" :key="result" id="leftright">
 
-      <p> <img :src="result.restaurant.featured_image"></p>
-
-      <a  @click="restaurantDirect(result.restaurant.events_url)" target="_blank">
-        <h6 style="color:blue"> {{result.restaurant.name}}, &#9733; {{result.restaurant.user_rating.aggregate_rating}} </h6>
-      </a>
+      <router-link to="">
+        <a @click="restaurantDirect(result.restaurant.events_url)" target="_blank">
+          <p> <img :src="result.restaurant.featured_image"></p>
+        </a>
+      </router-link>
+      <router-link to="">
+        <a @click="restaurantDirect(result.restaurant.events_url)" target="_blank">
+          <h6 style="color:blue"> {{result.restaurant.name}}, &#9733; {{result.restaurant.user_rating.aggregate_rating}} </h6>
+        </a>
+      </router-link>
 
     </div>
   </div>
@@ -45,7 +50,7 @@ export default {
         })
     },
     restaurantDirect(value) {
-    // console.log(value);
+      // console.log(value);
       window.location.href = value
     }
   }
@@ -53,7 +58,7 @@ export default {
 </script>
 
 <style>
-#bisabang{
+#bisabang {
   margin-top: 80px;
 }
 </style>

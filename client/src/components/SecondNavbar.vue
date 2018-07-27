@@ -1,26 +1,26 @@
 <template>
   <div id="ciat" class="row">
-    <div id="nah" class=" col s2">
+    <div id="nah" class=" col s3">
       <h6>
         <router-link to="/">
           <a> Home</a>
         </router-link>
-        
+
       </h6>
     </div>
-    <div id="nah" class=" col s2">
+    <div id="nah" class=" col s3">
       <h6>
-        <a>About</a>
+        <router-link to="/about">
+          <a>About</a>
+        </router-link>
       </h6>
     </div>
-    <div id="nah" class=" col s2">
+
+    <div id="nah" class=" col s3">
       <h6>
-        <a>profile</a>
-      </h6>
-    </div>
-    <div id="nah" class=" col s2">
-      <h6>
-        <a>Contact</a>
+        <router-link to="/contact">
+          <a>Contact</a>
+        </router-link>
       </h6>
     </div>
     <div id="nah" class=" col s3">
@@ -31,7 +31,7 @@
           </router-link>
         </button>
       </div>
-      <div id="nahi" class="col s6 m6 l6">
+      <div v-show="!post" id="nahi" class="col s6 m6 l6">
         <button onclick="document.getElementById('id01').style.display='block'" class="waves-effect waves-light btn-small">Login</button>
       </div>
       <div v-show="post" id="nahi" class="col s6 m6 l6">
