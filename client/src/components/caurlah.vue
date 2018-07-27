@@ -2,7 +2,7 @@
     <div class="details">
         <div id="comment" class="row">
             <div class="content">
-                <h4 id="judulbang" >{{articles[0].title}}</h4>
+                <h3 id="bahaha" >{{articles[0].title}}</h3>
                 <img id="oitdah" v-bind:src="articles[0].image">
                 <p v-html= "articles[0].article" align="justify">
                     {{articles[0].article}}
