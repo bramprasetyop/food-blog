@@ -22,10 +22,10 @@
         </p>
       </div>
 
-      <div v-else class="content">
+      <div id="foreditarticle" v-else class="content">
 
         <h4>{{article.title}}</h4>
-        <VueEditor v-model="article.article"> </VueEditor>
+        <VueEditor  v-model="article.article"> </VueEditor>
 
         <div id="comment" class="row">
           <div class="col s7 right">
@@ -157,5 +157,9 @@ export default {
 <style>
 #oitdah{
   padding: 20px;
+}
+
+#foreditarticle{
+  margin-left: -10px;
 }
 </style>

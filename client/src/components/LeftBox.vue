@@ -38,15 +38,14 @@
 
         <div class="row col s12">
 
+          <a>
+            <b>
+              <router-link @click="changeHome()" :to="`/content/${article._id}`">{{article.title}}</router-link>
+            </b>
+          </a>
           <router-link @click="changeHome()" :to="`/content/${article._id}`"> <img v-bind:src="article.image"></router-link>
 
         </div>
-
-        <a>
-          <b>
-            <router-link @click="changeHome()" :to="`/content/${article._id}`">{{article.title}}</router-link>
-          </b>
-        </a>
 
       </div>
       <router-view/>
