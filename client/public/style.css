@@ -430,6 +430,7 @@ span.psw {
   /* border: 1px solid #888; */
   width: 40%;
   /* Could be more or less, depending on screen size */
+  border-radius: 7px;
 }
 
 /* The Close Button (x) */
