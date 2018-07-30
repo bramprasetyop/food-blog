@@ -129,7 +129,7 @@ export default {
         password: this.status
       }
       axios
-        .post('http://localhost:3000/login', obj)
+        .post('https://api-blog.bramaprasetyo.co/login', obj)
         .then(response => {
           // console.log(response);
           localStorage.setItem('token', response.data.token)

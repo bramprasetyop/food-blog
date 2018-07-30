@@ -80,7 +80,7 @@ export default {
     getOneArticle() {
       axios({
         method: 'get',
-        url: `http://localhost:3000/home/articles/${this.$route.params.id}`
+        url: `https://api-blog.bramaprasetyo.co/home/articles/${this.$route.params.id}`
       }).then(response => {
         // console.log(response.data.Article)
 
@@ -99,7 +99,7 @@ export default {
       }
 
       axios
-        .put(`http://localhost:3000/home/articles/${id}`, body, {
+        .put(`https://api-blog.bramaprasetyo.co/home/articles/${id}`, body, {
           headers: {
             token: token
           }
@@ -134,7 +134,7 @@ export default {
             icon: 'success'
           })
           axios
-            .delete(`http://localhost:3000/home/articles/${id}`, {
+            .delete(`https://api-blog.bramaprasetyo.co/home/articles/${id}`, {
               headers: {
                 token: token
               }

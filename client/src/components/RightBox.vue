@@ -45,18 +45,36 @@ export default {
           }
         )
         .then(response => {
-          this.results = response.data.restaurants.slice(0, 5)
+          this.results = response.data.restaurants
           // console.log(response.data.restaurants[0])
+
+          this.results = this.shuffle(this.results.slice(0, 5))
+          // console.log(this.results)
         })
     },
     restaurantDirect(value) {
       // console.log(value);
       window.location.href = value
+    },
+    shuffle(array) {
+      var currentIndex = array.length,
+        temporaryValue,
+        randomIndex
+
+      while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex)
+        currentIndex -= 1
+
+        temporaryValue = array[currentIndex]
+        array[currentIndex] = array[randomIndex]
+        array[randomIndex] = temporaryValue
+      }
+
+      return array
     }
   }
 }
 </script>
 
 <style>
-
 </style>
