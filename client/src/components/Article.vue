@@ -13,30 +13,31 @@
           </div>
         </div>
       </div>
+      <div id="comment" class="row">
+        <div v-if="!editmode" class="content">
+          <h3 id="bahaha">{{article.title}}</h3>
+          <img id="oitdah" v-bind:src="article.image">
+          <p id="isinya" v-html="article.article" align="justify">
+            {{article.article}}
+          </p>
+        </div>
+        <div id="foreditarticle" v-else class="content">
 
-      <div v-if="!editmode" class="content">
-        <h3 id="bahaha">{{article.title}}</h3>
-        <img id="oitdah" v-bind:src="article.image">
-        <p id="isinya" v-html="article.article" align="justify">
-          {{article.article}}
-        </p>
-      </div>
+          <h4>{{article.title}}</h4>
+          <VueEditor v-model="article.article"> </VueEditor>
 
-      <div id="foreditarticle" v-else class="content">
-
-        <h4>{{article.title}}</h4>
-        <VueEditor  v-model="article.article"> </VueEditor>
-
-        <div id="comment" class="row">
-          <div class="col s7 right">
-            <div class="col s3 right">
-              <button @click="editContent(article._id)" id="tombol">Save</button>
-            </div>
-            <div class="col s4 right">
-              <button @click="toggleEdit()" id="tombol">Cancel</button>
+          <div id="comment" class="row">
+            <div class="col s7 right">
+              <div class="col s3 right">
+                <button @click="editContent(article._id)" id="tombol">Save</button>
+              </div>
+              <div class="col s4 right">
+                <button @click="toggleEdit()" id="tombol">Cancel</button>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
 
     </div>
@@ -80,7 +81,9 @@ export default {
     getOneArticle() {
       axios({
         method: 'get',
-        url: `https://api-blog.bramaprasetyo.co/home/articles/${this.$route.params.id}`
+        url: `https://api-blog.bramaprasetyo.co/home/articles/${
+          this.$route.params.id
+        }`
       }).then(response => {
         // console.log(response.data.Article)
 
@@ -155,11 +158,11 @@ export default {
 
 
 <style>
-#oitdah{
+#oitdah {
   padding: 20px;
 }
 
-#foreditarticle{
+#foreditarticle {
   margin-left: -10px;
 }
 </style>

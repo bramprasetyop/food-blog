@@ -22,7 +22,7 @@ export default new Vuex.Store({
     getAll({commit}, payload) {
       axios({
           method: "get",
-          url: "http://localhost:3000/home/articles" 
+          url: "https://api-blog.bramaprasetyo.co/home/articles" 
       })
       .then(({data})=>{
           // console.log("xxxxxxx",data.Article);
