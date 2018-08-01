@@ -5,6 +5,8 @@ import About from './views/About.vue'
 import Details from './views/Details.vue'
 import Post from './views/Post.vue'
 import Contact from './views/Contact.vue'
+import Login from './views/Login.vue'
+
 
 
 
@@ -37,6 +39,11 @@ export default new Router({
       path: '/contact',
       name: 'contact',
       component: Contact
+    },
+    {
+      path: '/login/:id',
+      name: 'login',
+      component: Login
     }
   ],
   mode: 'history'

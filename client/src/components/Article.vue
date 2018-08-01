@@ -20,7 +20,13 @@
           <p id="isinya" v-html="article.article" align="justify">
             {{article.article}}
           </p>
+
+          <div v-if="!comment" @click="commentButton($route.params.id)" id="commentbutton" class="col s3 right">
+            <button>Comment</button>
+          </div>
+
         </div>
+
         <div id="foreditarticle" v-else class="content">
 
           <h4>{{article.title}}</h4>
@@ -39,6 +45,49 @@
         </div>
 
       </div>
+      <hr>
+      <div id="tablecomment" class="row">
+        <div class="col s6 m3 l3">
+          <h6>
+            <a @click="showcomment()" id="commenthide">Comments --></a>
+          </h6>
+        </div>
+
+        <div v-if="hiddencomment">
+          <div v-if="userComment.articleId === $route.params.id" v-for="userComment in comments" :key="userComment" class="col s12 m12 l12">
+            <div class="card white darken-1">
+              <div class="card-action grey">
+
+              </div>
+              <div class="card-content white-text">
+                <h6 id="commentcontent" v-html="userComment.body" style="text-align:left">{{userComment.body}}</h6>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div v-if="hiddencomment" class="col s6 m4 l4 right">
+          <h6>
+            <a @click="hideforcomment()" id="commenthide"> Less comments--> </a>
+          </h6>
+        </div>
+      </div>
+
+      <div v-if="comment" id="editorrow" class="row">
+        <vue-editor v-model="bodyComment"></vue-editor>
+        <div class="row">
+
+          <div v-if="comment" id="commentbuttonfix" class="col s3 right">
+            <button @click="addComment({id:$route.params.id,comment:bodyComment})">Comment</button>
+          </div>
+
+          <div v-if="comment" id="commentbuttonfix" class="col s3 right">
+            <button @click="cancel()">Cancel</button>
+          </div>
+
+        </div>
+      </div>
 
     </div>
 
@@ -56,14 +105,17 @@ export default {
     return {
       article: '',
       editmode: false,
-      seen: false
+      seen: false,
+      comment: false,
+      bodyComment: '',
+      hiddencomment: false
     }
   },
   created() {
     if (localStorage.hasOwnProperty('token') === true) {
       this.seen = true
     }
-
+    this.getComment()
     this.getAll()
     this.getOneArticle()
   },
@@ -73,17 +125,30 @@ export default {
     }
   },
   computed: {
-    ...mapState(['articles'])
+    ...mapState(['articles', 'comments'])
   },
   methods: {
-    ...mapActions(['getAll']),
-
+    ...mapActions(['getAll', 'addComment', 'getComment']),
+    showcomment() {
+      this.hiddencomment = true
+    },
+    hideforcomment() {
+      this.hiddencomment = false
+    },
+    commentButton(id) {
+      if (localStorage.hasOwnProperty('users')) {
+        this.comment = true
+      } else {
+        this.$router.push(`/login/${id}`)
+      }
+    },
+    cancel() {
+      this.$router.push('/')
+    },
     getOneArticle() {
       axios({
         method: 'get',
-        url: `https://api-blog.bramaprasetyo.co/home/articles/${
-          this.$route.params.id
-        }`
+        url: `http://localhost:3000/home/articles/${this.$route.params.id}`
       }).then(response => {
         // console.log(response.data.Article)
 
@@ -102,7 +167,7 @@ export default {
       }
 
       axios
-        .put(`https://api-blog.bramaprasetyo.co/home/articles/${id}`, body, {
+        .put(`http://localhost:3000/home/articles/${id}`, body, {
           headers: {
             token: token
           }
@@ -137,7 +202,7 @@ export default {
             icon: 'success'
           })
           axios
-            .delete(`https://api-blog.bramaprasetyo.co/home/articles/${id}`, {
+            .delete(`http://localhost:3000/home/articles/${id}`, {
               headers: {
                 token: token
               }
@@ -162,7 +227,45 @@ export default {
   padding: 20px;
 }
 
+#commenthide {
+  color: black;
+}
+
+#commenthide:hover {
+  color: blue;
+}
+
+#commentcontent {
+  color: rgb(61, 59, 59);
+}
 #foreditarticle {
   margin-left: -10px;
+}
+
+#tablecomment {
+}
+
+#commentbutton {
+  /* border: 1px solid black; */
+  margin-right: 20px;
+  /* background-color: rgb(233, 75, 88); */
+  border-radius: 5px;
+  color: white;
+  font-family: cursive;
+}
+
+#commentbuttonfix {
+  /* border: 1px solid black; */
+  /* margin-right: 40px; */
+  /* background-color: rgb(233, 75, 88); */
+  border-radius: 5px;
+  color: white;
+  font-family: cursive;
+}
+
+#editorrow {
+  /* border: 1px solid black; */
+  width: 90%;
+  margin-left: 20px;
 }
 </style>

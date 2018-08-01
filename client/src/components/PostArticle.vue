@@ -62,7 +62,7 @@ export default {
       // ====================== axios ==========================
 
       axios({
-        url: 'https://api-blog.bramaprasetyo.co/home',
+        url: 'http://localhost:3000/home',
         method: 'post',
         data: formData,
         headers: {

@@ -77,7 +77,7 @@ export default {
     getOneArticle(id) {
       axios({
         method: 'get',
-        url: `https://api-blog.bramaprasetyo.co/home/articles/${id}`
+        url: `http://localhost:3000/home/articles/${id}`
       })
         .then(({ data }) => {
           console.log('xxxxxxx', data)
