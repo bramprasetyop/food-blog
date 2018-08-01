@@ -79,7 +79,7 @@ export default {
         email: this.email,
         password: this.password
       }
-      axios.post('http://localhost:3000/guest/signup', obj).then(response => {
+      axios.post('https://api-blog.bramaprasetyo.co/guest/signup', obj).then(response => {
         console.log(response)
         this.$router.push('/login')
         swal({
@@ -97,7 +97,7 @@ export default {
         email: this.emaillogin,
         password: this.passwordlogin
       }
-      axios.post('http://localhost:3000/guest/login', obj).then(response => {
+      axios.post('https://api-blog.bramaprasetyo.co/guest/login', obj).then(response => {
         console.log(response)
         localStorage.setItem('users', response.data.token)
         console.log(response);

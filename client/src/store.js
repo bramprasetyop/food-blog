@@ -38,7 +38,7 @@ export default new Vuex.Store({
           articleId: payload.id,
         }
         
-        axios.post('http://localhost:3000/comments', addComment, {
+        axios.post('https://api-blog.bramaprasetyo.co/comments', addComment, {
             headers: {
               users: localStorage.getItem('users')
             }
@@ -54,7 +54,7 @@ export default new Vuex.Store({
     getComment({
       commit
     }, payload) {
-      axios.get('http://localhost:3000/comments/all')
+      axios.get('https://api-blog.bramaprasetyo.co/comments/all')
         .then(response => {
           console.log('===============',response.data.Comment);
           payload = response.data.Comment
@@ -68,7 +68,7 @@ export default new Vuex.Store({
     }, payload) {
       axios({
           method: "get",
-          url: "http://localhost:3000/home/articles"
+          url: "https://api-blog.bramaprasetyo.co/home/articles"
         })
         .then(({
           data
