@@ -83,7 +83,7 @@
           </div>
 
           <div v-if="comment" id="commentbuttonfix" class="col s3 right">
-            <button @click="cancel()">Cancel</button>
+            <button @click="cancelButton()">Cancel</button>
           </div>
 
         </div>
@@ -128,7 +128,7 @@ export default {
     ...mapState(['articles', 'comments'])
   },
   methods: {
-    ...mapActions(['getAll', 'addComment', 'getComment']),
+    ...mapActions(['getAll', 'addComment', 'getComment','cancelButton']),
     showcomment() {
       this.hiddencomment = true
     },
@@ -141,9 +141,6 @@ export default {
       } else {
         this.$router.push(`/login/${id}`)
       }
-    },
-    cancel() {
-      this.$router.push('/')
     },
     getOneArticle() {
       axios({

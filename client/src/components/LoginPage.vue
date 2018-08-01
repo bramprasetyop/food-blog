@@ -102,7 +102,7 @@ export default {
       }
     },
     signin(id) {
-      if (this.email === '' || this.password === '') {
+      if (this.emaillogin === '' || this.passwordlogin === '') {
         swal({
           text: 'Something wrong',
           icon: 'success'

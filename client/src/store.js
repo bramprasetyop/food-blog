@@ -24,6 +24,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    cancelButton() {
+      localStorage.removeItem('users')
+      Router.push(`/`)
+
+    },
     addComment({
       commit
     }, payload) {
@@ -37,7 +42,7 @@ export default new Vuex.Store({
           body: payload.comment,
           articleId: payload.id,
         }
-        
+
         axios.post('https://api-blog.bramaprasetyo.co/comments', addComment, {
             headers: {
               users: localStorage.getItem('users')
