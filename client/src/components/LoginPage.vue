@@ -21,7 +21,7 @@
           </div>
 
           <div class="col s5 left">
-            <button @click="signup" class="btn waves-effect waves-light" type="submit" name="action">Signup
+            <button @click="signup($route.params.id)" class="btn waves-effect waves-light" type="submit" name="action">Signup
               <i class="material-icons right">send</i>
             </button>
 
@@ -73,41 +73,65 @@ export default {
     }
   },
   methods: {
-    signup() {
-      let obj = {
-        guestname: this.name,
-        email: this.email,
-        password: this.password
-      }
-      axios.post('https://api-blog.bramaprasetyo.co/guest/signup', obj).then(response => {
-        console.log(response)
-        this.$router.push('/login')
+    signup(id) {
+      if (this.name === '' || this.email === '' || this.password === '') {
         swal({
-          text: 'Signup Success',
+          text: 'Something wrong',
           icon: 'success'
         })
+      } else {
+        let obj = {
+          guestname: this.name,
+          email: this.email,
+          password: this.password
+        }
+        axios
+          .post('https://api-blog.bramaprasetyo.co/guest/signup', obj)
+          .then(response => {
+            console.log(response)
+            this.$router.push(`/login/${id}`)
+            swal({
+              text: 'Signup Success',
+              icon: 'success'
+            })
 
-        this.name = ''
-        this.email = ''
-        this.password = ''
-      })
+            this.name = ''
+            this.email = ''
+            this.password = ''
+          })
+      }
     },
     signin(id) {
-      let obj = {
-        email: this.emaillogin,
-        password: this.passwordlogin
-      }
-      axios.post('https://api-blog.bramaprasetyo.co/guest/login', obj).then(response => {
-        console.log(response)
-        localStorage.setItem('users', response.data.token)
-        console.log(response);
-        
-        this.$router.push(`/content/${id}`)
+      if (this.email === '' || this.password === '') {
         swal({
-          text: 'Signin Success',
+          text: 'Something wrong',
           icon: 'success'
         })
-      })
+      } else {
+        let obj = {
+          email: this.emaillogin,
+          password: this.passwordlogin
+        }
+        axios
+          .post('https://api-blog.bramaprasetyo.co/guest/login', obj)
+          .then(response => {
+            console.log(response)
+            localStorage.setItem('users', response.data.token)
+            console.log(response)
+
+            this.$router.push(`/content/${id}`)
+            swal({
+              text: 'Signin Success',
+              icon: 'success'
+            })
+          })
+          .catch(err => {
+            swal({
+              text: 'Something wrong',
+              icon: 'success'
+            })
+          })
+      }
     }
   }
 }
@@ -115,7 +139,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style >
-
 /* .login{
   background-color: rgb(127, 214, 230);
   height: 700px;
