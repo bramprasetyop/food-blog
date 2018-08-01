@@ -28,7 +28,7 @@ function newComment(req, res) {
 }
 
 function getComment(req, res) {
-  Comment.find({})
+  Comment.find()
     .then(Comment => {
       res.status(200).json({
         message: 'get Comment',

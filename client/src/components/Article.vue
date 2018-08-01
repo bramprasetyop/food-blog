@@ -148,7 +148,7 @@ export default {
     getOneArticle() {
       axios({
         method: 'get',
-        url: `https://api-blog.bramaprasetyo.co/articles/${this.$route.params.id}`
+        url: `https://api-blog.bramaprasetyo.co/home/articles/${this.$route.params.id}`
       }).then(response => {
         // console.log(response.data.Article)
 

@@ -56,7 +56,7 @@ export default new Vuex.Store({
     }, payload) {
       axios.get('https://api-blog.bramaprasetyo.co/comments/all')
         .then(response => {
-          console.log('===============',response.data.Comment);
+          // console.log('===============',response.data.Comment);
           payload = response.data.Comment
           commit("set_get_comment", payload)
 
@@ -73,7 +73,6 @@ export default new Vuex.Store({
         .then(({
           data
         }) => {
-          // console.log("xxxxxxx",data.Article);
           payload = data.Article
           commit("SET_ARTICLES", payload)
         })

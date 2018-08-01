@@ -16,9 +16,9 @@ var {
 } = require("../helpers/auth");
 
 /* GET articlelisting. */
-router.post('/', images.multer.single("image"),
+router.post('/',logincheck, images.multer.single("image"),
 
-    images.sendUploadToGCS, logincheck, newArticle)
+    images.sendUploadToGCS,  newArticle)
   .get('/articles', getArticle)
   .delete('/articles/:id', logincheck, deleteArticle)
   .get('/articles/:id', getOneArticle)

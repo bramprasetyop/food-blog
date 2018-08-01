@@ -61,17 +61,15 @@ export default {
 
       // ====================== axios ==========================
 
-      axios({
-        url: 'https://api-blog.bramaprasetyo.co/home',
-        method: 'post',
-        data: formData,
-        headers: {
-          token: localStorage.getItem('token')
-        }
-      })
+      axios
+        .post('https://api-blog.bramaprasetyo.co/home', formData, {
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        })
         .then(response => {
-          console.log(response);
-          
+          console.log(response)
+
           swal({
             text: 'Add Article Success',
             icon: 'success'

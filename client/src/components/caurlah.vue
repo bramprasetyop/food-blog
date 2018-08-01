@@ -20,6 +20,7 @@ export default {
   },
   created() {
     this.getAll()
+    this.getComment()
   },
   watch: {
     $route(to, from) {
@@ -27,10 +28,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(['articles'])
+    ...mapState(['articles','comments'])
   },
   methods: {
-    ...mapActions(['getAll'])
+    ...mapActions(['getAll','getComment'])
   }
 }
 </script>
